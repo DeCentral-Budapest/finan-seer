@@ -1,0 +1,29 @@
+{
+  "name": "finan-seer",
+  "version": "0.0.1",
+  "description": "Personal finance manager with an intuitive user experience as a goal",
+  "private": true,
+  "main": "finan-seer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeCentral-Budapest/finan-seer.git"
+  },
+  "keywords": [
+    "finance",
+    "budget",
+    "quicken"
+  ],
+  "author": "decentral.budapest@gmail.com",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/DeCentral-Budapest/finan-seer/issues"
+  },
+  "homepage": "https://github.com/DeCentral-Budapest/finan-seer#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0"
+  }
+}
