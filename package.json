@@ -5,6 +5,7 @@
   "private": true,
   "main": "finan-seer.js",
   "scripts": {
+    "build": "cp node_modules/vue/dist/vue.min.js static/js/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/DeCentral-Budapest/finan-seer#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "vue": "^1.0.25"
   }
 }

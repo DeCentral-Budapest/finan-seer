@@ -1,18 +1,29 @@
 <p>Hello, world!</p>
-<textarea id="f1"></textarea>
-<input type="checkbox" id="f2"></input>
+<form id="form" action="">
+  <textarea v-model="text" lazy></textarea>
+  <input type="checkbox" v-model="checked">
+</form>
+<script src="js/vue.min.js"></script>
 <script>
   var text = document.getElementById("f1");
   var checkbox = document.getElementById("f2");
   var key = "superSecretNotes";
 
-  var save = function() {
-    var state = { version: 1, f1: text.value, f2: checkbox.checked };
+  var vm = new Vue({
+    el: "#form",
+    data: {
+      text: "hello",
+      checked: false
+    }
+  });
+
+  function save() {
+    var state = { version: 1, f1: vm.text, f2: vm.checked };
     var stored = JSON.stringify(state);
     localStorage.setItem(key, stored);
   };
 
-  var restore = function() {
+  function restore() {
     var stored = localStorage.getItem(key);
     if (stored === undefined)
       return;
@@ -23,16 +34,14 @@
       return;
     }
 
-    if (state.version === undefined || state.version < 1)
+    if (state === null || state.version === undefined || state.version < 1)
       return;
 
-    text.value = state.f1;
-    checkbox.checked = state.f2;
+    vm.text = state.f1;
+    vm.checked = state.f2;
   }
 
   restore();
-  text.addEventListener("change",  save);
-  text.addEventListener("blur",  save);
-  checkbox.addEventListener("change",  save);
-  checkbox.addEventListener("blur",  save);
+  vm.$watch("text", save);
+  vm.$watch("checked", save);
 </script>
